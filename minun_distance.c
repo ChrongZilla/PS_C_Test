@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 int main() {
-    int count;
+    int count = 0;
     int total_distance = 0;
 
     scanf("%d", &count);
