@@ -36,13 +36,9 @@ int main() {
         scanf("%s %d", p[i].name, &p[i].birth);
         
         p[i].year = p[i].birth / 10000;
-
         p[i].birth = p[i].birth - (p[i].year * 10000);
-
         p[i].month = p[i].birth / 100;
-
         p[i].day = p[i].birth - (p[i].month * 100);
-
         p[i].age = 2025 - p[i].year;
 
         if(p[i].month == 1) {
