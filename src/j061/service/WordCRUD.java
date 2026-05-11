@@ -83,7 +83,3 @@ public class WordCRUD implements ICRUD {
 
     }
 }
-
-// 중복 확인하는 메소드
-
-// 정렬 메소드 및 클래스
