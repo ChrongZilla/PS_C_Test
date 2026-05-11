@@ -26,3 +26,7 @@ class FileOutputStreamEX {
         }
     }
 }
+
+// 이외에도 PrintWriter 클래스 등을 활용해 파일에 데이터를 저장할 수 있음.
+// FileOutputStream 클래스는 바이트 단위로 데이터를 저장하기 때문에, 문자열을 저장하려면 문자열을 바이트 배열로 변환해야 함. (getBytes() 메서드 활용)
+// PrintWriter 클래스는 문자 단위로 데이터를 저장하기 때문에, 문자열을 바로 저장할 수 있음. (println() 메서드 활용)

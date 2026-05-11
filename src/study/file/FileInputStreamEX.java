@@ -1,7 +1,7 @@
 package study.file;
 
-import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 class FileInputStreamEX {
