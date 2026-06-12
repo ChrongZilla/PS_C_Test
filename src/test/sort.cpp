@@ -61,10 +61,86 @@ void insertionsort(int *list, int s) {
     }
 }
 
-// quicksort
+int partition(int *list, int left, int right) {
+    int pivot = list[right];
+    int i = left; // left - 1
+
+    for(int j = left; j < right; j++) {
+        if(list[j] < pivot) {
+            /*
+            i++;
+            swap(list[i], list[j]);
+            */
+            swap(list[i], list[j]);
+            i++;
+        }
+    }
+
+    swap(list[i], list[right]); // swap(list[i+1], list[right]);
+
+    return i; // return i + 1;
+}
+
+// quicksort(list, 0, size-1)
+void quicksort(int *list, int left, int right) {
+
+    if(left < right) {
+        int pivotIndex = partition(list, left, right);
+
+        quicksort(list, left, pivotIndex - 1);
+        quicksort(list, pivotIndex + 1, right);
+    }
+}
 
 // mergesort
+/*
+   0 1 2 3
 
+ 0 1     2 3
+
+0   1   2   3
+*/
+
+void merge(int *list, int left, int mid, int right) {
+    // 배열 사이즈 & 동적 메모리 할당
+    int s = right - left - 1;
+    int *temp = new int[s];
+
+    int i = left;
+    int j = mid + 1;
+    int k = 0;
+
+    while(i <= mid && j <= right) {
+        if(list[i] <= list[j])
+            temp[k++] = list[i++];
+        else
+            temp[k++] = list[j++];
+    }
+
+    while(i <= mid)
+        temp[k++] = list[i++];
+    
+    while(j<= right)
+        temp[k++] = list[j++];
+
+    for(int t = 0; t < s; t++)
+        list[left + t] = temp[t];
+
+    // 메모리 제거
+    delete[] temp;
+}
+
+
+void mergesort(int *list, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergesort(list, left, mid);
+        mergesort(list, mid + 1, right);
+
+        merge(list, left, mid, right);
+    }
+}
 
 int main() {
     int list[] = {10, 20, 3, 13, 55};
